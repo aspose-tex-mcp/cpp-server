@@ -22,5 +22,3 @@ non-failing Starlette/httpx deprecation warning.
 The parent repository's component references are staged. Commit the parent files
 and references, then push to the configured remote after review. No component
 source modifications or remote publication were performed during this setup.
-Choose an appropriate root deployment license before public release; component
-licenses remain in their respective submodules.

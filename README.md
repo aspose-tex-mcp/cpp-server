@@ -130,4 +130,6 @@ Publish component commits before updating parent references. A parent push does 
 
 ## Validation and licenses
 
-GitHub Actions checks shell syntax and catalog JSON, runs setup and registration, and tests the TeX plugin and endpoint. It does not deploy services or ingest content. Preserve the engine and plugin licenses supplied with their checkouts. A root deployment license still needs to be selected before public release.
+GitHub Actions checks shell syntax and the catalog, then runs registration, TeX C++ MCP endpoint tests, and the plugin regression suite. It does not deploy services or publish content.
+
+Engine and plugin license texts and notices are supplied by their respective pinned repositories. Preserve them when distributing those components. This repository is licensed under [MIT](LICENSE), copyright (c) 2001 - 2026 Aspose Pty Ltd.
