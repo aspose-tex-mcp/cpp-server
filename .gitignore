@@ -1,0 +1,13 @@
+.venv/
+.env
+.env.*
+__pycache__/
+*.pyc
+artifacts/
+reports/
+
+# Commit placeholder templates, never local settings or downloaded corpora.
+!**/.env*.example
+engine/sources/
+.pytest_cache/
+*.egg-info/

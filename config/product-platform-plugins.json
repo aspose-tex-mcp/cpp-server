@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    "../plugins/tex-cpp/plugin.json"
+  ],
+  "compositions": []
+}

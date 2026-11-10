@@ -1,0 +1,34 @@
+name: Deployment checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check configuration and scripts
+        run: |
+          for script in scripts/*.sh; do sh -n "$script"; done
+          python -m json.tool config/product-platform-plugins.json > /dev/null
+      - run: sh scripts/setup.sh
+      - name: Plugin tests
+        working-directory: plugins/tex-cpp
+        env:
+          PYTHONPATH: src
+        run: .venv/bin/python -m unittest discover -s tests -v
+      - name: TeX endpoint regressions
+        working-directory: engine
+        env:
+          PYTHONPATH: src
+        run: |
+          ../.venv/bin/python -m pip install pytest
+          ../.venv/bin/python -m pytest tests/test_tex_cpp_mcp.py -q
