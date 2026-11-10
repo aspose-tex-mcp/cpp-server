@@ -4,3 +4,4 @@
 [submodule "plugins/tex-cpp"]
 	path = plugins/tex-cpp
 	url = https://github.com/aspose-tex-mcp/cpp-plugin.git
+	branch = main
